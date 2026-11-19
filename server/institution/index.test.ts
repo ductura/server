@@ -29,9 +29,13 @@ describe("server/institution public interface", () => {
     ]);
   });
 
-  it("has a service of three methods and closed bodies", () => {
+  it("has a service of five methods and closed bodies", () => {
     expectTypeOf<keyof InstitutionService>().toEqualTypeOf<
-      "createCourse" | "issueEnrollmentCode" | "revokeEnrollmentCode"
+      | "createCourse"
+      | "issueEnrollmentCode"
+      | "revokeEnrollmentCode"
+      | "removeStudent"
+      | "allowStudentReturn"
     >();
     expectTypeOf<keyof CourseBody>().toEqualTypeOf<"name" | "academicYear" | "aiPolicy">();
     expectTypeOf<EnrollmentCodeBody>().toEqualTypeOf<{ validUntil: string }>();

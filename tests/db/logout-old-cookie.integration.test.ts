@@ -75,6 +75,8 @@ let server: Running;
 const EVIDENCE_401 = { status: "unauthenticated" };
 /** A course that does not exist: a non-teacher is refused as for any course (C-23). */
 const COURSE = randomUUID();
+/** A student who does not exist either (C-23). */
+const STUDENT = randomUUID();
 const SESSION_ROUTES = {
   "evidence.open.post": {
     path: "/api/v1/evidence/open",
@@ -151,6 +153,18 @@ const SESSION_ROUTES = {
   },
   "institution.enrollment-code-revocation.post": {
     path: `/api/v1/institution/courses/${COURSE}/enrollment-code/revocation`,
+    body: () => ({}),
+    live: 403,
+  },
+  // Ductus#2028 (w1119o): the student routes on the same front. The account
+  // teaches no course: each RPC refuses with 403.
+  "institution.student-removal.post": {
+    path: `/api/v1/institution/courses/${COURSE}/students/${STUDENT}/removal`,
+    body: () => ({}),
+    live: 403,
+  },
+  "institution.student-return.post": {
+    path: `/api/v1/institution/courses/${COURSE}/students/${STUDENT}/return-permission`,
     body: () => ({}),
     live: 403,
   },

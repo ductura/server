@@ -11,7 +11,9 @@ import { Name } from "./teacher.ts";
 // student-removal-route.ts, student-return-route.ts and the two teacher role
 // routes, all in front of mutation-route.ts. Who may do what is the decision
 // of the SECURITY DEFINER RPC behind each; the caller comes only from the
-// session. No handler yet (CONTRACT_ONLY).
+// session. The handlers are server/http/institution-courses.ts and, for an
+// assignment version, server/http/institution-assignments.ts (SRV-14); the
+// two teacher role routes have none yet (CONTRACT_ONLY).
 
 /** A UUID in any case (mutation-route.ts UUID /i). */
 const Uuid = Type.String({

@@ -12,6 +12,9 @@ import type {
   EnrollmentCodeIssueOutcome,
   EnrollmentCodeRevokeOutcome,
   InstitutionCourses,
+  InstitutionMembers,
+  StudentRemovalOutcome,
+  StudentReturnOutcome,
 } from "../database/index.ts";
 
 import { parseCourseBody, parseEnrollmentCodeBody } from "./schemas.ts";
@@ -27,12 +30,19 @@ export type InstitutionService = {
     value: unknown,
   ): Promise<EnrollmentCodeIssueOutcome | InvalidInput>;
   revokeEnrollmentCode(token: string, courseId: string): Promise<EnrollmentCodeRevokeOutcome>;
+  removeStudent(token: string, courseId: string, studentId: string): Promise<StudentRemovalOutcome>;
+  allowStudentReturn(
+    token: string,
+    courseId: string,
+    studentId: string,
+  ): Promise<StudentReturnOutcome>;
 };
 
 const INVALID: InvalidInput = { status: "invalid_input" };
 
 export function createInstitutionService(deps: {
   courses: InstitutionCourses;
+  members: InstitutionMembers;
 }): InstitutionService {
   return {
     async createCourse(token, value) {
@@ -45,5 +55,10 @@ export function createInstitutionService(deps: {
       return deps.courses.issueEnrollmentCode(token, courseId, body.validUntil);
     },
     revokeEnrollmentCode: (token, courseId) => deps.courses.revokeEnrollmentCode(token, courseId),
+    // The body carries nothing (the route checks it is {}); the ids come from the path.
+    removeStudent: (token, courseId, studentId) =>
+      deps.members.removeStudent(token, courseId, studentId),
+    allowStudentReturn: (token, courseId, studentId) =>
+      deps.members.allowStudentReturn(token, courseId, studentId),
   };
 }

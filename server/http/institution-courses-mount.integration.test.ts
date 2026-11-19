@@ -19,10 +19,13 @@ const ORIGIN = "https://ductura.example.invalid";
 const TOKEN = "Izmisljeni_token-kolegija-ustanove_00000052";
 const COURSE = "7b6a5c4d-3e2f-4a1b-9c8d-7e6f5a4b3c01";
 const UNTIL = "2026-12-31T23:59:59.123456+01:00";
+const STUDENT = "9d8c7b6a-5f4e-4c3b-9a2d-1e0f9a8b7c01";
 const ROWS: ReadonlyMap<string, unknown> = new Map([
   ["create_course", { id: COURSE }],
   ["create_enrollment_code", { code: "A1B2-C3D4-E5F6-0789" }],
   ["revoke_enrollment_code", { revoked: true }],
+  ["remove_student", { removed: true }],
+  ["allow_student_return", { allowed: false }],
 ]);
 
 let server: Running | undefined;
@@ -92,7 +95,13 @@ const HEADERS = [
   "content-type: application/json",
 ];
 const CODE_PATH = `/api/v1/institution/courses/${COURSE}/enrollment-code`;
-type Rpc = "create_course" | "create_enrollment_code" | "revoke_enrollment_code";
+type Rpc =
+  | "create_course"
+  | "create_enrollment_code"
+  | "revoke_enrollment_code"
+  | "remove_student"
+  | "allow_student_return";
+const STUDENT_PATH = `/api/v1/institution/courses/${COURSE}/students/${STUDENT}`;
 type Case = { readonly path: string; readonly body: string; readonly values: readonly unknown[] };
 const ROUTES: ReadonlyMap<Rpc, Case> = new Map<Rpc, Case>([
   [
@@ -108,6 +117,11 @@ const ROUTES: ReadonlyMap<Rpc, Case> = new Map<Rpc, Case>([
     { path: CODE_PATH, body: JSON.stringify({ validUntil: UNTIL }), values: [COURSE, UNTIL] },
   ],
   ["revoke_enrollment_code", { path: `${CODE_PATH}/revocation`, body: "{}", values: [COURSE] }],
+  ["remove_student", { path: `${STUDENT_PATH}/removal`, body: "{}", values: [COURSE, STUDENT] }],
+  [
+    "allow_student_return",
+    { path: `${STUDENT_PATH}/return-permission`, body: "{}", values: [COURSE, STUDENT] },
+  ],
 ]);
 const rpcs = [...ROUTES.keys()];
 const route = (rpc: Rpc): Case => ROUTES.get(rpc)!;
@@ -146,6 +160,12 @@ describe("createInstitutionCourseRoutesFor(main)", () => {
     ["revoke_enrollment_code", coded("ZD403"), 403],
     ["revoke_enrollment_code", coded("ZD409"), 503],
     ["revoke_enrollment_code", coded("ZD422"), 503],
+    ["remove_student", coded("ZD401"), 401],
+    ["remove_student", coded("ZD403"), 403],
+    ["remove_student", coded("ZD422"), 503],
+    ["allow_student_return", coded("ZD401"), 401],
+    ["allow_student_return", coded("ZD403"), 403],
+    ["allow_student_return", coded("ZD409"), 503],
     ...rpcs.map((rpc): [Rpc, unknown, number] => [rpc, coded("XX000"), 503]),
     ...rpcs.map((rpc): [Rpc, unknown, number] => [rpc, new Error("izmišljeno"), 503]),
   ];

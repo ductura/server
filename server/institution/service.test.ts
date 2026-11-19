@@ -4,7 +4,7 @@
 // port's outcome is passed on unchanged. Every token and value is invented.
 import { describe, expect, it } from "vitest";
 
-import type { InstitutionCourses } from "../database/index.ts";
+import type { InstitutionCourses, InstitutionMembers } from "../database/index.ts";
 
 import { createInstitutionService } from "./service.ts";
 
@@ -27,7 +27,11 @@ function fake(answer: unknown = { status: "unavailable", reason: "database_error
     issueEnrollmentCode: record("issueEnrollmentCode"),
     revokeEnrollmentCode: record("revokeEnrollmentCode"),
   } as unknown as InstitutionCourses;
-  return { service: createInstitutionService({ courses }), calls };
+  const members = {
+    removeStudent: record("removeStudent"),
+    allowStudentReturn: record("allowStudentReturn"),
+  } as unknown as InstitutionMembers;
+  return { service: createInstitutionService({ courses, members }), calls };
 }
 
 describe("createCourse refuses a body before the port", () => {
@@ -97,5 +101,20 @@ describe("the service passes the port's outcome on unchanged", () => {
     expect(await service.createCourse(TOKEN, { ...BODY })).toBe(outcome);
     expect(await service.issueEnrollmentCode(TOKEN, COURSE, { validUntil: UNTIL })).toBe(outcome);
     expect(await service.revokeEnrollmentCode(TOKEN, COURSE)).toBe(outcome);
+  });
+});
+
+const STUDENT = "9d8c7b6a-5f4e-4c3b-9a2d-1e0f9a8b7c01";
+
+describe("the student operations", () => {
+  it("removal and return pass the path ids to the port and its outcome back unchanged", async () => {
+    const outcome = { status: "removed", removed: true };
+    const { service, calls } = fake(outcome);
+    expect(await service.removeStudent(TOKEN, COURSE, STUDENT)).toBe(outcome);
+    expect(await service.allowStudentReturn(TOKEN, COURSE, STUDENT)).toBe(outcome);
+    expect(calls).toEqual([
+      { method: "removeStudent", args: [TOKEN, COURSE, STUDENT] },
+      { method: "allowStudentReturn", args: [TOKEN, COURSE, STUDENT] },
+    ]);
   });
 });

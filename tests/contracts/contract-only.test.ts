@@ -30,11 +30,16 @@ import {
 // contract and no handler must be there. After the task the list only shrinks.
 // (`submission.submit.post`: the table's `submission.post` has no name part,
 // which checkRoute refuses.)
-/** The course routes of DAN-852, mounted by the entry point since 852-5a, in DAN_803 order. */
+/**
+ * The course routes of DAN-852, mounted by the entry point since 852-5a, and
+ * the student routes on the same front (Ductus#2028, w1119o).
+ */
 const INSTITUTION_COURSE_ROUTES = [
   "institution.courses.post",
   "institution.enrollment-code.post",
   "institution.enrollment-code-revocation.post",
+  "institution.student-removal.post",
+  "institution.student-return.post",
 ] as const;
 
 export const DAN_803: readonly string[] = [
@@ -258,12 +263,14 @@ describe("CONTRACT_ONLY", () => {
     expect(contractOnlyProblems(withoutSettings, ids, [])).toEqual(
       // With nothing mounted, the WebAuthn routes (mounted since 840-3f1), the
       // problem report (851-2d2a), the course routes (852-5a), the download
-      // manifest (DAN-932), the teacher's reads (SRV-13) and the assignment
-      // routes (SRV-14) and the group routes (SRV-15) are missing too, in task order.
+      // manifest (DAN-932), the teacher's reads (SRV-13), the student routes
+      // (w1119o), the assignment routes (SRV-14) and the group routes (SRV-15)
+      // are missing too, in task order.
       [
         ...["support.problem-report.post", "teacher.courses.get", "institution.courses.post"],
         ...["institution.course-assignments.post", "institution.enrollment-code.post"],
-        ...["institution.enrollment-code-revocation.post", "institution.assignment-versions.post"],
+        ...["institution.enrollment-code-revocation.post", "institution.student-removal.post"],
+        ...["institution.student-return.post", "institution.assignment-versions.post"],
         ...[...DAN_806, ...DAN_840, "teacher.access.get", ...DAN_931],
         ...["institution.admin-courses.post", "institution.course-groups.post"],
         "institution.course-group-teachers.post",

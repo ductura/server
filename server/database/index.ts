@@ -62,6 +62,11 @@ export type {
   EnrollmentCodeRevokeOutcome,
   InstitutionCourses,
 } from "./institution-courses.ts";
+export type {
+  InstitutionMembers,
+  StudentRemovalOutcome,
+  StudentReturnOutcome,
+} from "./institution-members.ts";
 export type { Enrollment, InstitutionEnrollment } from "./institution-enrollment.ts";
 export type {
   AccessLogCursor,
@@ -194,6 +199,7 @@ export { createReplaySource } from "./replay-source.ts";
 export { createSettingsWriter } from "./settings-writer.ts";
 export { createWebAuthnCredentials } from "./webauthn-credentials.ts";
 export { createInstitutionCourses } from "./institution-courses.ts";
+export { createInstitutionMembers } from "./institution-members.ts";
 export {
   createInstitutionEnrollment,
   ENROLLMENT_DATABASE_ERROR,
