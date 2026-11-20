@@ -17,6 +17,7 @@ import { VERSIONS_HANDLERS } from "./versions-routes.ts";
 import type { Handlers } from "./server.ts";
 
 type SourceLookupBody = Operations["sources.lookup.post"]["success"]["body"];
+type PublicVerificationBody = Operations["public.verification.post"]["success"]["body"];
 
 export {
   answerDev,
@@ -66,5 +67,13 @@ export const DEV_HANDLERS: Handlers = {
       ? (successBody("sources.lookup.post") as SourceLookupBody)
       : { source: null };
     return { status: 200, body: result };
+  },
+  // SRV-9B (C-6): only the invented pair of the contract's "match" vector matches.
+  "public.verification.post": ({ body }) => {
+    const known = successBody("public.verification.post") as PublicVerificationBody;
+    const match =
+      body.submissionId === "00000000-0000-4000-8000-00000000c0de" &&
+      body.artifactSha256 === "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08";
+    return { status: 200, body: match ? known : { match: false } };
   },
 };

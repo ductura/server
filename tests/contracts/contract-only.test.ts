@@ -152,12 +152,15 @@ const SRV_19 = [
   "student.submission-notes.post",
 ];
 
+// SRV-9B (✓ C-6, Ductus#2028 c.7041664094): the public check of a receipt,
+// contract and service now, the route in the next part.
+const SRV_9B = ["public.verification.post"];
 const SRV_9C = ["student.receipt-pdf.get", "teacher.receipt-pdf.get"] as const;
 
 /** Every route a task has put on the list; nothing else may be there. */
 const FROZEN: readonly string[] = [
   ...[...DAN_803, ...DAN_806, ...DAN_840, ...DAN_903, ...DAN_904],
-  ...[...DAN_989, ...DAN_931, ...SRV_02, ...SRV_03, ...UGOVORI_API, ...SRV_19],
+  ...[...DAN_989, ...DAN_931, ...SRV_02, ...SRV_03, ...UGOVORI_API, ...SRV_19, ...SRV_9B],
   ...SRV_9C,
 ];
 

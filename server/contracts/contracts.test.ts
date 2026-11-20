@@ -119,6 +119,7 @@ describe("route inventory", () => {
       "student.receipt-pdf.get: app/api/student/assignments/[assignmentId]/submission/pdf/route.ts is not in the inventory",
       "teacher.receipt-pdf.get: app/api/teacher/assignments/[assignmentId]/submissions/[studentId]/pdf/route.ts is not in the inventory",
       "sources.lookup.post: app/api/sources/lookup/route.ts is not in the inventory",
+      "public.verification.post: app/api/public/verification/route.ts is not in the inventory",
       "work.versions.get: app/api/works/[documentId]/versions/route.ts is not in the inventory",
     ]);
     const clash = { "app/api/health/route.ts": { methods: ["GET"] as const } };

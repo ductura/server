@@ -654,6 +654,20 @@ export const VALIDATORS: Readonly<Record<string, (value: Record<string, unknown>
       Object.getOwnPropertyNames(value).length === 1
     )
   }),
+  "public.verification.post:body": (() => {
+  const local0 = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?![\s\S])/;
+  const local1 = /^[0-9a-f]{64}(?![\s\S])/;
+  return function check(value: Record<string, unknown>): boolean {
+    return (
+      (typeof value === 'object' && value !== null && !Array.isArray(value)) &&
+      (typeof value['submissionId'] === 'string') &&
+      local0.test(value['submissionId']) &&
+      (typeof value['artifactSha256'] === 'string') &&
+      local1.test(value['artifactSha256']) &&
+      Object.getOwnPropertyNames(value).length === 2
+    )
+  }
+  })(),
   "settings.values.get:query": (() => {
   const local0 = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
   return function check(value: Record<string, unknown>): boolean {

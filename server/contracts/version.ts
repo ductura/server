@@ -5,7 +5,7 @@
  * breaks existing clients is refused (scripts/check-breaking.ts) and needs a
  * new major, which is a new document and a new path prefix.
  */
-export const API_VERSION = "1.31.0";
+export const API_VERSION = "1.32.0";
 
 /**
  * The oldest client (preloader, web, desktop) this server still serves,

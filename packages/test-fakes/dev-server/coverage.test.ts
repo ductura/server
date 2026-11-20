@@ -163,6 +163,15 @@ const SCENARIOS: Record<RouteId, Scenario> = {
       body: { authenticatorData: "AA", clientDataJSON: "AA", credentialId: "AA" },
     },
   },
+  "public.verification.post": {
+    request: {
+      path: "/api/v1/public/verification",
+      body: {
+        submissionId: "00000000-0000-4000-8000-00000000c0de",
+        artifactSha256: "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+      },
+    },
+  },
   "client.context.post": {
     request: {
       path: "/api/v1/client-context",

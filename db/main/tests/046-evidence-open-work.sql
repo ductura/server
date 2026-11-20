@@ -118,7 +118,9 @@ SELECT bag_eq(
             ('app.assignment_works(uuid)'), ('app.work_submitted(uuid)'), ('app.fast_path_works(uuid)'),
             ('app.assignment_submissions(uuid)'), ('app.teacher_assignment_names(uuid)'),
             ('app.attach_submission_receipt(uuid,text,jsonb)'), ('app.read_submission_receipt(uuid)'),
-            ('app.student_workspace()') $$,
+            ('app.student_workspace()'),
+            -- SRV-9B (✓ C-6): the public check of a receipt, with or without a session.
+            ('app.public_receipt_verification(uuid,text)') $$,
   'the web role executes exactly the expected evidence RPCs');
 SELECT is_empty(
   $$ SELECT r || ' ' || p.oid::regprocedure::text FROM pg_proc p
