@@ -129,6 +129,7 @@ export const EVIDENCE_HANDLERS: Handlers = {
         status: 200,
         body: {
           status: "duplicate",
+          duplicate: true,
           revision: receipt.payload.revision,
           receipt: { status: "signed", signedReceipt: receipt },
         },

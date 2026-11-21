@@ -50,6 +50,7 @@ describe("commitAnswer: the closed mapping of 4.13 t. 4", () => {
         status: 200,
         body: {
           status: "duplicate",
+          duplicate: true,
           revision: 5,
           receipt: { status: "signed", signedReceipt: RECEIPT },
         },
@@ -66,7 +67,12 @@ describe("commitAnswer: the closed mapping of 4.13 t. 4", () => {
       { status: "duplicate_pending", revision: 5 },
       {
         status: 202,
-        body: { status: "duplicate", revision: 5, receipt: { status: "pending_signature" } },
+        body: {
+          status: "duplicate",
+          duplicate: true,
+          revision: 5,
+          receipt: { status: "pending_signature" },
+        },
       },
     ],
     [

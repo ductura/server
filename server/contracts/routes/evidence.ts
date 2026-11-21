@@ -179,6 +179,12 @@ export const open = defineRoute({
 });
 
 const Accepted = Type.Union([Type.Literal("committed"), Type.Literal("duplicate")]);
+/**
+ * M3.6 (D-212): a repeated commit (same documentId and clientTransactionId, same segment) is
+ * answered with the first answer's revision and `duplicate: true`, and writes no new row. The
+ * key is present only on a duplicate; `status: "duplicate"` stays for existing clients.
+ */
+const DuplicateMark = Type.Optional(Type.Literal(true));
 
 export const commit = defineRoute({
   id: "evidence.commit.post",
@@ -206,6 +212,7 @@ export const commit = defineRoute({
       description: "stored and signed",
       body: closed({
         status: Accepted,
+        duplicate: DuplicateMark,
         revision: Count,
         receipt: closed({ status: Type.Literal("signed"), signedReceipt: SignedReceipt }),
       }),
@@ -216,6 +223,7 @@ export const commit = defineRoute({
       headers: ["retry-after"],
       body: closed({
         status: Accepted,
+        duplicate: DuplicateMark,
         revision: Count,
         receipt: closed({ status: Type.Literal("pending_signature") }),
       }),

@@ -8,6 +8,8 @@ Prihvat tijela evidencije (M3.1, B-8; popis stavki u [docs/nalazi/M3.1.md](../..
 
 Testovi: `closed-object.test.ts` (ponovljeni ključ, nepoznat ključ, BOM, neispravan UTF-8, tijelo od pet milijuna znakova) i `tampered-segment.property.test.ts`: segment promijenjen za jedan bajt (izbačen, dodan ili zamijenjen) kroz cijelu pripremu servisa `createEvidenceService` ili se odbija zatvorenim kodom bez pohrane i commita, ili se, kad je promjena i sama valjan kanonski segment, sprema i commita samo kao ti bajtovi pod svojim hashem. Nijedan ishod ne nosi dio primljenog segmenta.
 
+Ponovljeni commit istog segmenta (M3.6, D-212): odgovor s prvom revizijom i `duplicate: true`, bez novog retka; test `server/http/evidence-commit-repeated.test.ts`, zapis u [docs/nalazi/M3.6.md](../../../docs/nalazi/M3.6.md).
+
 ## Tko ga zove
 
 `server/evidence/ingest-http.ts` (predaja) i, preko `server/evidence/index.ts`, `server/http/evidence-request.ts` (`parseClosedObject` ruta open, commit, replay i submission).

@@ -388,6 +388,7 @@ describe("evidence/commit through a real server over real PostgreSQL", () => {
     const again = await post("/api/v1/evidence/commit", request);
     expect(again.status).toBe(200);
     expect(again.body.status).toBe("duplicate");
+    expect(again.body.duplicate).toBe(true);
     expect(JSON.stringify((again.body.receipt as { signedReceipt: unknown }).signedReceipt)).toBe(
       JSON.stringify(signedReceipt),
     );
@@ -484,7 +485,7 @@ describe("evidence/commit under protocol 2 through a real server over real Postg
     expect(first.body).toStrictEqual({ status: "committed", ...pending });
     const second = await commit("2");
     expectVector(second, "duplicate-pending-signature");
-    expect(second.body).toStrictEqual({ status: "duplicate", ...pending });
+    expect(second.body).toStrictEqual({ status: "duplicate", duplicate: true, ...pending });
     expect(await stored()).toEqual([{ status: "pending_signature", signature: null }]);
     expect(webSigns).toBe(0);
 
@@ -511,6 +512,7 @@ describe("evidence/commit under protocol 2 through a real server over real Postg
     expectVector(after, "duplicate-signed-after-pending");
     expect(after.body).toMatchObject({
       status: "duplicate",
+      duplicate: true,
       revision: 1,
       receipt: { status: "signed" },
     });

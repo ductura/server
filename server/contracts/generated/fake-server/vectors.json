@@ -3331,6 +3331,7 @@
       },
       "body": {
         "status": "duplicate",
+        "duplicate": true,
         "revision": 1,
         "receipt": {
           "status": "signed",
@@ -3437,6 +3438,7 @@
       },
       "body": {
         "status": "duplicate",
+        "duplicate": true,
         "revision": 1,
         "receipt": {
           "status": "pending_signature"
@@ -3473,6 +3475,7 @@
       },
       "body": {
         "status": "duplicate",
+        "duplicate": true,
         "revision": 1,
         "receipt": {
           "status": "signed",
@@ -14910,7 +14913,7 @@
       "body": {
         "status": "ok",
         "state": "ok",
-        "apiVersion": "1.45.0",
+        "apiVersion": "1.46.0",
         "serverVersion": "0.1.0",
         "minClientVersion": "1.0.0"
       }
@@ -14926,7 +14929,7 @@
       "body": {
         "status": "ok",
         "state": "degraded",
-        "apiVersion": "1.45.0",
+        "apiVersion": "1.46.0",
         "serverVersion": "0.1.0",
         "minClientVersion": "1.0.0"
       }

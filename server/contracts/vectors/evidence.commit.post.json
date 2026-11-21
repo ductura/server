@@ -98,6 +98,7 @@
         },
         "body": {
           "status": "duplicate",
+          "duplicate": true,
           "revision": 1,
           "receipt": {
             "status": "signed",
@@ -204,6 +205,7 @@
         },
         "body": {
           "status": "duplicate",
+          "duplicate": true,
           "revision": 1,
           "receipt": {
             "status": "pending_signature"
@@ -240,6 +242,7 @@
         },
         "body": {
           "status": "duplicate",
+          "duplicate": true,
           "revision": 1,
           "receipt": {
             "status": "signed",

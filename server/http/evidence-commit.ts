@@ -94,6 +94,7 @@ export function commitAnswer(
         status: 200,
         body: {
           status: outcome.status,
+          ...(outcome.status === "duplicate" ? { duplicate: true } : {}),
           revision: outcome.revision,
           receipt: { status: "signed", signedReceipt: outcome.signedReceipt },
         },
@@ -104,6 +105,7 @@ export function commitAnswer(
         status: 202,
         body: {
           status: outcome.status === "committed_pending" ? "committed" : "duplicate",
+          ...(outcome.status === "duplicate_pending" ? { duplicate: true } : {}),
           revision: outcome.revision,
           receipt: { status: "pending_signature" },
         },

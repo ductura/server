@@ -101,8 +101,12 @@ describe("dev fake server: evidence receipts", () => {
     const segment = evidenceSegment(state, 2);
     const first = await commit(state, headers, "izmisljena-1", 0, segment);
     const duplicate = await commit(state, headers, "izmisljena-1", 0, segment);
-    expect(duplicate.json).toMatchObject({ status: "duplicate", revision: 1 });
-    expect(duplicate.json).toEqual({ ...(first.json as object), status: "duplicate" });
+    expect(duplicate.json).toMatchObject({ status: "duplicate", duplicate: true, revision: 1 });
+    expect(duplicate.json).toEqual({
+      ...(first.json as object),
+      status: "duplicate",
+      duplicate: true,
+    });
     expect((await commit(state, headers, "izmisljena-1", 0)).json).toMatchObject({
       status: "txid_reused",
     });
@@ -119,6 +123,7 @@ describe("dev fake server: evidence receipts", () => {
     expect(contractProblems("evidence.commit.post", signed)).toEqual([]);
     expect(signed.json).toMatchObject({
       status: "duplicate",
+      duplicate: true,
       revision: 2,
       receipt: { status: "signed", signedReceipt: { payload: { sequenceFrom: 3, sequenceTo: 3 } } },
     });
