@@ -189,8 +189,10 @@ SELECT bag_eq(
             ('write_config_version ductus_identity false search_path=""'),
             ('latest_config ductus_identity false search_path=""'),
             ('publish_cost_config ductus_identity true search_path=""'),
-            ('publish_cost_cap ductus_identity false search_path=""') $$,
-  'the schema has four trigger functions and, since SRV-1203, the RPCs and their helpers');
+            ('publish_cost_cap ductus_identity false search_path=""'),
+            -- SRV-1205: the worker's listing of due requests; 172 tests it.
+            ('sweep_due ductus_identity true search_path=""') $$,
+  'the schema has four trigger functions and, since SRV-1203 and SRV-1205, the RPCs and their helpers');
 SELECT bag_eq(
   $$ SELECT r || ' ' || p.oid::regprocedure FROM pg_proc p
       CROSS JOIN unnest(ARRAY['ductus_app', 'ductus_worker', 'ductus_retention', 'ductus_auth', 'ductus_evidence',
@@ -201,8 +203,8 @@ SELECT bag_eq(
             ('ductus_app assistant.fail_request(uuid,text,bigint)'), ('ductus_app assistant.mark_outcome_unknown(uuid)'),
             ('ductus_app assistant.read_conversation(uuid)'),
             ('ductus_app assistant.publish_cost_config(integer,bigint,bigint,bigint)'),
-            ('ductus_worker assistant.sweep_and_settle(uuid)') $$,
-  'a runtime role executes only the RPCs of SRV-1203 meant for it: the web role seven, the worker one');
+            ('ductus_worker assistant.sweep_and_settle(uuid)'), ('ductus_worker assistant.sweep_due(integer)') $$,
+  'a runtime role executes only the RPCs meant for it: the web role seven, the worker the sweep and its listing (SRV-1205)');
 SELECT ok(NOT has_schema_privilege('ductus_identity', 'assistant', 'CREATE'),
   'after the migration the identity role keeps no CREATE on the schema');
 SELECT bag_eq(

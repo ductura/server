@@ -12,3 +12,4 @@ export {
   type CostConfigInput,
   type WorkerQuery,
 } from "./assistant-requests.ts";
+export { SWEEP_DUE_MAX, sweepDue, type SweepDue } from "./assistant-sweep.ts";

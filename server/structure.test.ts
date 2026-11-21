@@ -29,6 +29,7 @@ const TEMPLATE_AREAS = [
   "institution",
   "support",
   "public-verification",
+  "assistant",
   "database",
   "session",
   "domain",

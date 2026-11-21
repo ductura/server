@@ -102,8 +102,8 @@ SELECT bag_eq(
             ('app.worker_attach_receipt_signature(uuid,text,jsonb)'), ('app.worker_pending_backlog()'),
             ('app.worker_receipt_object(uuid,uuid)'), ('app.worker_package_checkpoints(uuid,text,text[])'),
             ('pgboss.job_now()'), ('pgboss.create_queue(text,jsonb)'),
-            ('assistant.sweep_and_settle(uuid)') $$,
-  'the worker role executes exactly the three worker RPCs, the backlog (107-worker-pending-backlog.sql), the receipt object locator (115-worker-receipt-object.sql), the checkpoint read (123-worker-package-checkpoints.sql), the two pg-boss functions of its queue (DAN-517) and the assistant sweep (171-assistant-rpcs.sql)');
+            ('assistant.sweep_and_settle(uuid)'), ('assistant.sweep_due(integer)') $$,
+  'the worker role executes exactly the three worker RPCs, the backlog (107-worker-pending-backlog.sql), the receipt object locator (115-worker-receipt-object.sql), the checkpoint read (123-worker-package-checkpoints.sql), the two pg-boss functions of its queue (DAN-517), the assistant sweep (171-assistant-rpcs.sql) and its listing of due requests (172-assistant-sweep-due.sql)');
 SELECT is_empty(
   $$ SELECT r || ' ' || p.oid::regprocedure::text FROM pg_proc p
       CROSS JOIN unnest(ARRAY['ductus_app', 'ductus_retention', 'ductus_auth', 'ductus_identity', 'ductus_test_stranger']) AS r

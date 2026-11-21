@@ -48,6 +48,8 @@ const REQUIRED_AREAS = [
   "source-lookup",
   // SRV-9B (Ductus#2028 c.7041664094, ✓ C-6): the public check of a receipt.
   "public-verification",
+  // SRV-1205 (Ductus ai-request-v1 step 5): the worker's sweep of assistant requests.
+  "assistant",
   "contracts",
   "domain",
   "test-server",
