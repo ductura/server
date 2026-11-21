@@ -1,0 +1,19 @@
+{
+  "name": "@ductura/docx-provenance-spike",
+  "version": "0.0.0",
+  "private": true,
+  "description": "SRV-1802 (M8.1, M8.8): local synthetic spike of reading provenance signals from DOCX",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test *.test.ts",
+    "report": "node report.ts",
+    "osv": "node osv-scan.ts pnpm-lock.yaml"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.12.1",
+    "fflate": "0.8.3"
+  }
+}

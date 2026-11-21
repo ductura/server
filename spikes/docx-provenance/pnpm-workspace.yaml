@@ -1,0 +1,2 @@
+# Own island: the spike has its own lockfile and is not part of the root workspace.
+packages: []
