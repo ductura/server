@@ -55,6 +55,8 @@ const REQUIRED_AREAS = [
   "contracts",
   "domain",
   "test-server",
+  // SRV-1512 (plan M7.9, R-07): checks across areas that are a condition of the build.
+  "tests",
 ];
 
 describe("readTable and readAreas", () => {

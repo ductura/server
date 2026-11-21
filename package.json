@@ -26,6 +26,7 @@
     "test:unit": "vitest run --project unit",
     "test:property": "vitest run --project property",
     "test:integration": "vitest run --project integration",
+    "test:equality": "vitest run --project unit server/tests/equality",
     "test:integration:pg": "vitest run --project integration-pg",
     "test:database": "vitest run --project database && pnpm test:integration:pg",
     "contracts:generate": "tsx scripts/generate-contracts.ts",

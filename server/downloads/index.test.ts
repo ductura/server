@@ -4,7 +4,7 @@ import type { DownloadsManifest, DownloadsService } from "./index.ts";
 import type { Result } from "../domain/index.ts";
 
 describe("server/downloads public interface", () => {
-  it("exports the empty routes and schemas, the manifest service and its errors, and the Merlin roster and package", () => {
+  it("exports the empty routes and schemas, the manifest service and its errors, and the Merlin roster and package, and the DOCX export", () => {
     expect(Object.keys(area).sort()).toEqual([
       "DOWNLOADS_ERRORS",
       "DOWNLOADS_RELEASES_INVALID",
@@ -14,11 +14,13 @@ describe("server/downloads public interface", () => {
       "DOWNLOADS_SCHEMAS",
       "MERLIN_PACKAGE_CSV",
       "MERLIN_PACKAGE_FINGERPRINTS",
+      "buildExportModel",
       "buildMerlinPackageZip",
       "createDownloadsService",
       "createMerlinPackageService",
       "createMerlinRosterReader",
       "merlinRosterCsv",
+      "renderDocx",
       "renderReceiptPdf",
     ]);
     expect(area.DOWNLOADS_ROUTES).toEqual([]);

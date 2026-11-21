@@ -2,6 +2,8 @@
 export { DOWNLOADS_ROUTES } from "./routes.ts";
 export { DOWNLOADS_SCHEMAS } from "./schemas.ts";
 export { renderReceiptPdf } from "./receipt-pdf/index.ts";
+// SRV-1512: the display-equality test (server/tests) renders a DOCX from an export snapshot.
+export { buildExportModel, renderDocx, type ExportLabels } from "./export/index.ts";
 export {
   createMerlinRosterReader,
   merlinRosterCsv,
