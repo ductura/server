@@ -244,6 +244,13 @@ export { readReceiptKeys } from "./receipt-keys.ts";
 // The worker's receipt store: the key read and the attach of a signature
 // (820b-2b-2), same login and owner.
 export { createPendingReceiptStore } from "./pending-receipt-store.ts";
+// The worker's read of the segment object a pending receipt names (SRV-1502).
+export {
+  createPendingReceiptObjectSource,
+  type PendingReceiptObject,
+  type PendingReceiptObjectRead,
+  type PendingReceiptObjectSource,
+} from "./receipts/index.ts";
 export { createReplaySource } from "./replay-source.ts";
 export { createSettingsWriter } from "./settings-writer.ts";
 export {

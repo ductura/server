@@ -48,6 +48,8 @@ const REQUIRED_AREAS = [
   "source-lookup",
   // SRV-9B (Ductus#2028 c.7041664094, ✓ C-6): the public check of a receipt.
   "public-verification",
+  // SRV-1502 (M3.2, B-9): the worker process, first its receipt signing.
+  "worker",
   // SRV-1401 (DAN-296, M1.6): idle expiry of a session.
   "identity",
   "contracts",

@@ -23,6 +23,20 @@ export { answerWorkVersions, type WorkVersionsAnswer } from "./versions/index.ts
 // worker process builds it, over its own store and signer (D-71, D-102).
 export { createSignPendingReceipt, type SignPendingReceiptDeps } from "./sign-pending-receipt.ts";
 export type { PendingReceiptObjectCheck } from "./object-check.ts";
+// The worker process composes these (SRV-1502, M3.2): the object check before
+// a receipt is signed (DAN-301) and the sweep of every pending receipt.
+export {
+  createCheckPendingReceiptObject,
+  type CheckPendingReceiptObjectDeps,
+} from "./check-pending-receipt-object.ts";
+export {
+  createReconcilePendingReceipts,
+  MAX_RECONCILE_BATCH,
+  MAX_RECONCILE_DOMAINS,
+  MAX_RECONCILE_GRACE_MS,
+  type ReconcileDeps,
+  type ReconcileSummary,
+} from "./reconcile-pending-receipts.ts";
 // What the worker does after one attempt and the loop of attempts (DAN-822-1, 822-2).
 export {
   createSignPendingReceiptWithRetry,
