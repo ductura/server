@@ -49,6 +49,7 @@ export type Context<Id extends OperationId> = {
   readonly params: Op<Id>["params"];
   readonly query: Op<Id>["query"];
   readonly body: Op<Id>["body"];
+  readonly rawBody: Uint8Array;
   readonly now: Date;
   /** A request header by lowercase name. */
   readonly header: (name: string) => string | undefined;
@@ -260,6 +261,7 @@ export async function answerDev(
     params: match.params as never,
     query: query as never,
     body: body.value as never,
+    rawBody: req.body,
     now: new Date(),
     header: (name) => header(req, name),
   });

@@ -32,6 +32,7 @@ import {
   createMerlinRosterRoutesFor,
   createMerlinPackageRoutesFor,
   createAssistantRoutesFor,
+  createStatementRoutesFor,
   createTeacherMentorshipRequestRoutesFor,
   createLiveRoutesFor,
   createCollaborationCommentsRouteFor,
@@ -311,6 +312,15 @@ const ENTRY_MOUNTED: readonly { call: string; ids: string[]; routes: () => strin
     routes: () => createAssistantRoutesFor(NO_ACTOR).map((route) => route.contract.id),
   },
   {
+    call: "...createStatementRoutesFor(databases.main)",
+    ids: [
+      "student.declaration.get",
+      "student.declaration.put",
+      "student.declaration-attachments.post",
+    ],
+    routes: () => createStatementRoutesFor(NO_ACTOR).map((route) => route.contract.id),
+  },
+  {
     call: "createTeacherMentorshipRequestRoutesFor(databases.main)",
     ids: SRV_31,
     routes: () =>
@@ -571,6 +581,9 @@ describe("routes the entry point mounts itself", () => {
       "teacher.merlin-package-download.get",
       "student.assistant-request.post",
       "student.assistant-conversation.get",
+      "student.declaration.get",
+      "student.declaration.put",
+      "student.declaration-attachments.post",
       ...SRV_31,
       "work.consultation-slots.get",
       "work.consultation-slots.post",

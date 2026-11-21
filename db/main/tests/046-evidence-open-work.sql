@@ -120,7 +120,9 @@ SELECT bag_eq(
             ('app.attach_submission_receipt(uuid,text,jsonb)'), ('app.read_submission_receipt(uuid)'),
             ('app.student_workspace()'),
             -- SRV-9B (✓ C-6): the public check of a receipt, with or without a session.
-            ('app.public_receipt_verification(uuid,text)') $$,
+            ('app.public_receipt_verification(uuid,text)'),
+            ('declaration.read_statement(uuid)'), ('declaration.save_statement(uuid,jsonb,text)'),
+            ('declaration.upload_attachment(uuid,text,bytea)') $$,
   'the web role executes exactly the expected evidence RPCs');
 SELECT is_empty(
   $$ SELECT r || ' ' || p.oid::regprocedure::text FROM pg_proc p

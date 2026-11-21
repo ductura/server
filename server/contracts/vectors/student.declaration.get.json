@@ -1,0 +1,127 @@
+{
+  "route": "student.declaration.get",
+  "vectors": [
+    {
+      "name": "success",
+      "kind": "success",
+      "request": {
+        "params": { "assignmentId": "00000000-0000-4000-8000-0000000000a1" },
+        "headers": {
+          "sec-fetch-site": "same-origin",
+          "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": { "cache-control": "no-store" },
+        "body": {
+          "state": "none",
+          "submitted": false,
+          "currentRevision": 1,
+          "version": 0,
+          "formText": null,
+          "currentForm": {
+            "formId": "test-izjava",
+            "formVersion": 1,
+            "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "text": "Izmisljeni obrazac."
+          },
+          "draft": null,
+          "payload": null,
+          "declarationSha256": null,
+          "uploads": []
+        }
+      }
+    },
+    {
+      "name": "unauthorized",
+      "kind": "error",
+      "code": "unauthorized",
+      "request": {
+        "params": { "assignmentId": "00000000-0000-4000-8000-0000000000a1" },
+        "headers": { "sec-fetch-site": "same-origin" }
+      },
+      "response": {
+        "status": 401,
+        "contentType": "application/json",
+        "body": {
+          "error": "unauthorized",
+          "code": "unauthorized",
+          "messageKey": "errors.unauthorized",
+          "status": 401,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "not-found",
+      "kind": "error",
+      "code": "not_found",
+      "request": {
+        "params": { "assignmentId": "00000000-0000-4000-8000-0000000000a1" },
+        "headers": {
+          "sec-fetch-site": "same-origin",
+          "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+        }
+      },
+      "response": {
+        "status": 404,
+        "contentType": "application/json",
+        "body": {
+          "error": "not_found",
+          "code": "not_found",
+          "messageKey": "errors.notFound",
+          "status": 404,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "unavailable",
+      "kind": "error",
+      "code": "unavailable",
+      "request": {
+        "params": { "assignmentId": "00000000-0000-4000-8000-0000000000a1" },
+        "headers": {
+          "sec-fetch-site": "same-origin",
+          "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+        }
+      },
+      "response": {
+        "status": 503,
+        "contentType": "application/json",
+        "body": {
+          "error": "unavailable",
+          "code": "unavailable",
+          "messageKey": "errors.unavailable",
+          "status": 503,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "forbidden",
+      "kind": "error",
+      "code": "forbidden",
+      "request": {
+        "params": { "assignmentId": "00000000-0000-4000-8000-0000000000a1" },
+        "headers": {
+          "sec-fetch-site": "cross-site",
+          "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+        }
+      },
+      "response": {
+        "status": 403,
+        "contentType": "application/json",
+        "body": {
+          "error": "forbidden",
+          "code": "forbidden",
+          "messageKey": "errors.forbidden",
+          "status": 403,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    }
+  ]
+}

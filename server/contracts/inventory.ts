@@ -328,6 +328,14 @@ export const SERVER_SOURCES: Readonly<
     methods: ["GET"],
     source: "danielrisavi77-create/Ductus#2051:issuecomment-7049370945",
   },
+  "app/api/student/assignments/[assignmentId]/declaration/route.ts": {
+    methods: ["GET", "PUT"],
+    source: "danielrisavi77-create/Ductus#2052:issuecomment-7060488877",
+  },
+  "app/api/student/assignments/[assignmentId]/declaration-attachments/route.ts": {
+    methods: ["POST"],
+    source: "danielrisavi77-create/Ductus#2052:issuecomment-7060488877",
+  },
   "app/api/teacher/assignments/[assignmentId]/merlin/packages/[packageId]/download/route.ts": {
     methods: ["GET"],
     source: "danielrisavi77-create/Ductus#2051:issuecomment-7049370945",

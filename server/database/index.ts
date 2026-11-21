@@ -571,3 +571,15 @@ export {
   type CostConfigInput,
   type WorkerQuery,
 } from "./assistant/index.ts";
+
+export {
+  checkExternalAttachmentBytes,
+  createStatementPort,
+  incompleteFields,
+  isExternalFormat,
+  parseDeclarationFormFile,
+  parseDeclarationPutBody,
+  type FormReader,
+  type StatementOperation,
+  type StatementPort,
+} from "./statement/index.ts";

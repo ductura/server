@@ -142,10 +142,13 @@ function checkVector(
     if (vector.code !== undefined) problems.push("a success vector carries a code");
     // A success is reached only by a valid request.
     for (const part of ["params", "query", "body"] as const) {
-      // Raw bytes are for requests the contract refuses, never for a success.
+      // Routes without a structured request schema can carry bounded raw bytes.
       const valid =
         part === "body" && request.rawBody !== undefined
-          ? false
+          ? route.request.body === undefined &&
+            request.body === undefined &&
+            route.request.maxBodyBytes !== undefined &&
+            new TextEncoder().encode(request.rawBody).byteLength <= route.request.maxBodyBytes
           : validRequestPart(part, route.request[part], request[part], check);
       if (!valid) problems.push(`request ${part} does not match the contract`);
     }

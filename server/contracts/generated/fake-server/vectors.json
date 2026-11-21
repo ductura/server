@@ -14910,7 +14910,7 @@
       "body": {
         "status": "ok",
         "state": "ok",
-        "apiVersion": "1.45.0",
+        "apiVersion": "1.46.0",
         "serverVersion": "0.1.0",
         "minClientVersion": "1.0.0"
       }
@@ -14926,7 +14926,7 @@
       "body": {
         "status": "ok",
         "state": "degraded",
-        "apiVersion": "1.45.0",
+        "apiVersion": "1.46.0",
         "serverVersion": "0.1.0",
         "minClientVersion": "1.0.0"
       }
@@ -19953,6 +19953,1322 @@
         "messageKey": "errors.unauthorized",
         "status": 401,
         "requestId": "00000000-0000-4000-8000-00000000d112"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "success",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 200,
+      "contentType": "application/json",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "body": {
+        "externalAttachmentId": "00000000-0000-4000-8000-0000000000c1",
+        "format": "text/plain",
+        "byteLength": 1,
+        "contentSha256": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "origin-missing",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "origin_missing",
+        "code": "origin_missing",
+        "messageKey": "errors.originMissing",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "origin-mismatch",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://other.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "origin_mismatch",
+        "code": "origin_mismatch",
+        "messageKey": "errors.originMismatch",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "cross-site",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "cross-site",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "cross_site",
+        "code": "cross_site",
+        "messageKey": "errors.crossSite",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "body-too-large",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain",
+        "content-length": "2097153"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 413,
+      "contentType": "application/json",
+      "body": {
+        "error": "body_too_large",
+        "code": "body_too_large",
+        "messageKey": "errors.bodyTooLarge",
+        "status": 413,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "body-timeout",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain",
+        "content-length": "15"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 408,
+      "contentType": "application/json",
+      "body": {
+        "error": "body_timeout",
+        "code": "body_timeout",
+        "messageKey": "errors.bodyTimeout",
+        "status": 408,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "content-length-invalid",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain",
+        "content-length": "-1"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "content_length_invalid",
+        "code": "content_length_invalid",
+        "messageKey": "errors.contentLengthInvalid",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "content-length-mismatch",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain",
+        "content-length": "1"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "content_length_mismatch",
+        "code": "content_length_mismatch",
+        "messageKey": "errors.contentLengthMismatch",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "body-stream-error",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain",
+        "content-length": "15"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "body_stream_error",
+        "code": "body_stream_error",
+        "messageKey": "errors.bodyStreamError",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "unauthorized",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 401,
+      "contentType": "application/json",
+      "body": {
+        "error": "unauthorized",
+        "code": "unauthorized",
+        "messageKey": "errors.unauthorized",
+        "status": 401,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "not-found",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 404,
+      "contentType": "application/json",
+      "body": {
+        "error": "not_found",
+        "code": "not_found",
+        "messageKey": "errors.notFound",
+        "status": 404,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "unavailable",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 503,
+      "contentType": "application/json",
+      "body": {
+        "error": "unavailable",
+        "code": "unavailable",
+        "messageKey": "errors.unavailable",
+        "status": 503,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "conflict",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "rawBody": "x"
+    },
+    "response": {
+      "status": 409,
+      "contentType": "application/json",
+      "body": {
+        "error": "conflict",
+        "code": "conflict",
+        "messageKey": "errors.conflict",
+        "status": 409,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration-attachments.post",
+    "name": "invalid-input",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/html"
+      },
+      "rawBody": "<p>x</p>"
+    },
+    "response": {
+      "status": 422,
+      "contentType": "application/json",
+      "body": {
+        "error": "invalid_input",
+        "code": "invalid_input",
+        "messageKey": "errors.invalidInput",
+        "status": 422,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.get",
+    "name": "success",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+      }
+    },
+    "response": {
+      "status": 200,
+      "contentType": "application/json",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "body": {
+        "state": "none",
+        "submitted": false,
+        "currentRevision": 1,
+        "version": 0,
+        "formText": null,
+        "currentForm": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "Izmisljeni obrazac."
+        },
+        "draft": null,
+        "payload": null,
+        "declarationSha256": null,
+        "uploads": []
+      }
+    }
+  },
+  {
+    "route": "student.declaration.get",
+    "name": "unauthorized",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin"
+      }
+    },
+    "response": {
+      "status": 401,
+      "contentType": "application/json",
+      "body": {
+        "error": "unauthorized",
+        "code": "unauthorized",
+        "messageKey": "errors.unauthorized",
+        "status": 401,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.get",
+    "name": "not-found",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+      }
+    },
+    "response": {
+      "status": 404,
+      "contentType": "application/json",
+      "body": {
+        "error": "not_found",
+        "code": "not_found",
+        "messageKey": "errors.notFound",
+        "status": 404,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.get",
+    "name": "unavailable",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+      }
+    },
+    "response": {
+      "status": 503,
+      "contentType": "application/json",
+      "body": {
+        "error": "unavailable",
+        "code": "unavailable",
+        "messageKey": "errors.unavailable",
+        "status": 503,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.get",
+    "name": "forbidden",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "cross-site",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+      }
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "forbidden",
+        "code": "forbidden",
+        "messageKey": "errors.forbidden",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "success",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 200,
+      "contentType": "application/json",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "body": {
+        "state": "draft",
+        "submitted": false,
+        "currentRevision": 1,
+        "version": 1,
+        "formText": "Izmisljeni obrazac.",
+        "currentForm": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "text": "Izmisljeni obrazac."
+        },
+        "draft": {
+          "baseVersion": 0,
+          "revision": 1,
+          "form": {
+            "formId": "test-izjava",
+            "formVersion": 1,
+            "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "ownWork": {
+            "confirmed": false
+          },
+          "humanHelp": {
+            "received": false,
+            "entries": []
+          },
+          "ai": {
+            "use": null,
+            "declaredTools": [],
+            "attachments": [],
+            "externalAttachmentIds": []
+          },
+          "confirm": false
+        },
+        "payload": null,
+        "declarationSha256": null,
+        "uploads": []
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "origin-missing",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "origin_missing",
+        "code": "origin_missing",
+        "messageKey": "errors.originMissing",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "origin-mismatch",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://other.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "origin_mismatch",
+        "code": "origin_mismatch",
+        "messageKey": "errors.originMismatch",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "cross-site",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "cross-site",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 403,
+      "contentType": "application/json",
+      "body": {
+        "error": "cross_site",
+        "code": "cross_site",
+        "messageKey": "errors.crossSite",
+        "status": 403,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "body-too-large",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json",
+        "content-length": "640385"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 413,
+      "contentType": "application/json",
+      "body": {
+        "error": "body_too_large",
+        "code": "body_too_large",
+        "messageKey": "errors.bodyTooLarge",
+        "status": 413,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "body-timeout",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json",
+        "content-length": "15"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 408,
+      "contentType": "application/json",
+      "body": {
+        "error": "body_timeout",
+        "code": "body_timeout",
+        "messageKey": "errors.bodyTimeout",
+        "status": 408,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "content-length-invalid",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json",
+        "content-length": "-1"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "content_length_invalid",
+        "code": "content_length_invalid",
+        "messageKey": "errors.contentLengthInvalid",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "content-length-mismatch",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json",
+        "content-length": "1"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "content_length_mismatch",
+        "code": "content_length_mismatch",
+        "messageKey": "errors.contentLengthMismatch",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "body-stream-error",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json",
+        "content-length": "15"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "body_stream_error",
+        "code": "body_stream_error",
+        "messageKey": "errors.bodyStreamError",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "unauthorized",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 401,
+      "contentType": "application/json",
+      "body": {
+        "error": "unauthorized",
+        "code": "unauthorized",
+        "messageKey": "errors.unauthorized",
+        "status": 401,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "not-found",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 404,
+      "contentType": "application/json",
+      "body": {
+        "error": "not_found",
+        "code": "not_found",
+        "messageKey": "errors.notFound",
+        "status": 404,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "unavailable",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 503,
+      "contentType": "application/json",
+      "body": {
+        "error": "unavailable",
+        "code": "unavailable",
+        "messageKey": "errors.unavailable",
+        "status": 503,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "conflict",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 409,
+      "contentType": "application/json",
+      "body": {
+        "error": "conflict",
+        "code": "conflict",
+        "messageKey": "errors.conflict",
+        "status": 409,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "invalid-input",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false,
+        "principalId": "00000000-0000-4000-8000-0000000000a1"
+      }
+    },
+    "response": {
+      "status": 422,
+      "contentType": "application/json",
+      "body": {
+        "error": "invalid_input",
+        "code": "invalid_input",
+        "messageKey": "errors.invalidInput",
+        "status": 422,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "invalid-json",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "application/json"
+      },
+      "rawBody": "{"
+    },
+    "response": {
+      "status": 400,
+      "contentType": "application/json",
+      "body": {
+        "error": "invalid_json",
+        "code": "invalid_json",
+        "messageKey": "errors.invalidJson",
+        "status": 400,
+        "requestId": "00000000-0000-4000-8000-000000000000"
+      }
+    }
+  },
+  {
+    "route": "student.declaration.put",
+    "name": "unsupported-media-type",
+    "request": {
+      "params": {
+        "assignmentId": "00000000-0000-4000-8000-0000000000a1"
+      },
+      "headers": {
+        "sec-fetch-site": "same-origin",
+        "cookie": "__Host-ductus_session=VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        "origin": "https://ductura.example.invalid",
+        "content-type": "text/plain"
+      },
+      "body": {
+        "baseVersion": 0,
+        "revision": 1,
+        "form": {
+          "formId": "test-izjava",
+          "formVersion": 1,
+          "formSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "ownWork": {
+          "confirmed": false
+        },
+        "humanHelp": {
+          "received": false,
+          "entries": []
+        },
+        "ai": {
+          "use": null,
+          "declaredTools": [],
+          "attachments": [],
+          "externalAttachmentIds": []
+        },
+        "confirm": false
+      }
+    },
+    "response": {
+      "status": 415,
+      "contentType": "application/json",
+      "body": {
+        "error": "unsupported_media_type",
+        "code": "unsupported_media_type",
+        "messageKey": "errors.unsupportedMediaType",
+        "status": 415,
+        "requestId": "00000000-0000-4000-8000-000000000000"
       }
     }
   },

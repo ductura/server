@@ -6,7 +6,25 @@ BEGIN;
 -- Denials are told apart by their message below, so the language is fixed.
 SET LOCAL lc_messages TO 'C';
 
-SELECT plan(2451);
+SELECT plan(2456);
+
+SELECT ok(c.relrowsecurity AND c.relforcerowsecurity AND c.relowner = 'ductus_evidence'::regrole
+    AND NOT has_table_privilege('ductus_app', c.oid, 'SELECT,INSERT,UPDATE,DELETE,TRUNCATE')
+    AND ARRAY(SELECT p.policyname::text FROM pg_policies p
+      WHERE p.schemaname = 'declaration' AND p.tablename = c.relname
+        AND p.roles = ARRAY['ductus_evidence'::name] AND p.cmd = 'ALL') = ARRAY[t.policy],
+  t.relation || ': forced RLS and only the evidence owner has access')
+  FROM (VALUES ('declaration.statement', 'statement_owner'),
+               ('declaration.external_attachment', 'attachment_owner')) t(relation, policy)
+  LEFT JOIN pg_class c ON c.oid = to_regclass(t.relation);
+SELECT ok(p.prosecdef AND 'search_path=""' = ANY(p.proconfig)
+    AND has_function_privilege('ductus_app', p.oid, 'EXECUTE')
+    AND NOT has_function_privilege('public', p.oid, 'EXECUTE')
+    AND NOT has_function_privilege('ductus_worker', p.oid, 'EXECUTE'),
+  f.signature || ': definer RPC with an empty path, only for the application')
+  FROM (VALUES ('declaration.read_statement(uuid)'), ('declaration.save_statement(uuid,jsonb,text)'),
+               ('declaration.upload_attachment(uuid,text,bytea)')) f(signature)
+  LEFT JOIN pg_proc p ON p.oid = to_regprocedure(f.signature);
 
 -- 1. The catalogue. A table, policy, grant or function that is added later
 -- changes one of these lists, so it cannot arrive without a row here.
