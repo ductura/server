@@ -1,0 +1,8 @@
+# HTTP rute AI pomoćnika
+
+SRV-1204, korak 4 ugovora Ductus `docs/contracts/ai-request-v1.md`: ruta AI proxyja kao stvarni pozivatelj RPC-ova sheme `assistant` i porta pružatelja.
+
+- `POST /api/v1/student/assistant/requests` (`student.assistant-request.post`): student zadatka šalje jedan odlomak za jednu svrhu, uz zaglavlje `Idempotency-Key` (kanonski UUID po računu iz sesije). Tok: parser zahtjeva (SRV-1201) → `begin_request` → upute iz koda za svrhu važeće verzije zadatka → `mark_sent` (commit) → poziv porta samo za redak u stanju `sent` → `complete_request`, `fail_request` ili `mark_outcome_unknown`. Pružatelja i model daje jedna verzionirana konfiguracija (`parseAssistantProviderConfig`), nikad zahtjev; nakon greške nema drugog pružatelja (P7). Odgovor 200 uvijek nosi `outcome` iz zatvorenog skupa „Ishodi”; tijelo izvan ugovora je 422 `invalid_input` (`invalid_request`), a ključ koji nedostaje, ponavlja se ili nije UUID 428 `precondition_required` (`invalid_idempotency_key`).
+- `GET /api/v1/student/assistant/conversations/{conversationId}` (`student.assistant-conversation.get`): student vlasnik čita svoj razgovor kroz `read_conversation`; tuđi, nepoznat i neispravan ID su isti 404.
+
+Produkcijska kompozicija (`createAssistantRoutesFor`) nema adaptera ni konfiguracije pružatelja (OA-1, Q-10), pa ruta zahtjeva nakon provjere tijela i sesije uvijek vraća `ai_disabled` i ne zove nijedan RPC sheme `assistant`. Sintetički adapter postoji samo u testnoj kompoziciji (`createAssistantRoutes` u testu). Ulaz porta nosi samo pet polja iz `buildPortInput`: bez identiteta, ID-ova i ostatka rada (S3, G8, G9).

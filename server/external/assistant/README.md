@@ -8,7 +8,7 @@ Adapteri porta AI pomoćnika (`AssistantPort` iz [`server/domain/assistant`](../
 
 ## Tko ga zove
 
-`http`: ruta AI proxyja (korak 4 ugovora) stvara adapter i predaje ga kao port. Danas ga zovu samo testovi.
+`http`: ruta AI proxyja (`server/http/assistant`, SRV-1204, korak 4 ugovora) prima port i preko ovog sučelja čita ono što joj treba iz domene (parser zahtjeva, sastav uputa, ulaz porta, provjeru pružatelja), jer `http` ne smije uvoziti `domain`. Sintetički adapter stvaraju samo testovi; produkcijska kompozicija nema adaptera.
 
 ## Koje podatke dira
 
@@ -18,7 +18,8 @@ Ništa trajno. Ulaz porta postoji samo tijekom poziva i u popisu `calls` sinteti
 
 - `createSyntheticAssistant(script)`: sintetički adapter; jedna grana se ponavlja, popis grana troši se redom;
 - `SYNTHETIC_BRANCHES`, `SyntheticBranch`, `SyntheticAssistant`;
-- `syntheticAnswer`: deterministični tekst odgovora, rezan na `maxResponseCodePoints`.
+- `syntheticAnswer`: deterministični tekst odgovora, rezan na `maxResponseCodePoints`;
+- prosljeđeno iz domene za rutu: `parseAssistantRequest`, `composeInstructions`, `buildPortInput`, `checkResponse`, `parseProviderEntry`, `AI_POLICIES`, `PURPOSE_CATALOG_VERSIONS` i njihovi tipovi.
 
 ## Što ne smije uvoziti
 

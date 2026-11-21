@@ -1,0 +1,847 @@
+{
+  "route": "student.assistant-request.post",
+  "vectors": [
+    {
+      "name": "completed",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "completed",
+          "requestId": "00000000-0000-4000-8000-0000000000d1",
+          "conversationId": "00000000-0000-4000-8000-0000000000c1",
+          "response": {
+            "id": "00000000-0000-4000-8000-0000000000d2",
+            "text": "Izmišljeni odgovor: provjerite zarez iza riječi „mlinovima”."
+          }
+        }
+      }
+    },
+    {
+      "name": "ai-disabled",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "ai_disabled",
+          "requestId": null,
+          "conversationId": null
+        }
+      }
+    },
+    {
+      "name": "purpose-not-allowed",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "purpose_not_allowed",
+          "requestId": "00000000-0000-4000-8000-0000000000d1",
+          "conversationId": null
+        }
+      }
+    },
+    {
+      "name": "budget-exceeded",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "budget_exceeded",
+          "requestId": "00000000-0000-4000-8000-0000000000d1",
+          "conversationId": null
+        }
+      }
+    },
+    {
+      "name": "in-progress",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "in_progress",
+          "requestId": "00000000-0000-4000-8000-0000000000d1",
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        }
+      }
+    },
+    {
+      "name": "request-outcome-unknown",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "request_outcome_unknown",
+          "requestId": "00000000-0000-4000-8000-0000000000d1",
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        }
+      }
+    },
+    {
+      "name": "provider-failed",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "provider_failed",
+          "requestId": "00000000-0000-4000-8000-0000000000d1",
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        }
+      }
+    },
+    {
+      "name": "forbidden",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "forbidden",
+          "requestId": null,
+          "conversationId": null
+        }
+      }
+    },
+    {
+      "name": "idempotency-conflict",
+      "kind": "success",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "outcome": "idempotency_conflict",
+          "requestId": null,
+          "conversationId": null
+        }
+      }
+    },
+    {
+      "name": "key-missing",
+      "kind": "error",
+      "code": "precondition_required",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 428,
+        "contentType": "application/json",
+        "body": {
+          "error": "precondition_required",
+          "code": "precondition_required",
+          "messageKey": "errors.preconditionRequired",
+          "status": 428,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "key-not-uuid",
+      "kind": "error",
+      "code": "precondition_required",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "nije-uuid"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 428,
+        "contentType": "application/json",
+        "body": {
+          "error": "precondition_required",
+          "code": "precondition_required",
+          "messageKey": "errors.preconditionRequired",
+          "status": 428,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "client-provider",
+      "kind": "error",
+      "code": "invalid_input",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci.",
+          "providerId": "provider-test-b"
+        }
+      },
+      "response": {
+        "status": 422,
+        "contentType": "application/json",
+        "body": {
+          "error": "invalid_input",
+          "code": "invalid_input",
+          "messageKey": "errors.invalidInput",
+          "status": 422,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "client-student",
+      "kind": "error",
+      "code": "invalid_input",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci.",
+          "studentId": "00000000-0000-4000-8000-0000000000e1"
+        }
+      },
+      "response": {
+        "status": 422,
+        "contentType": "application/json",
+        "body": {
+          "error": "invalid_input",
+          "code": "invalid_input",
+          "messageKey": "errors.invalidInput",
+          "status": 422,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "empty-paragraph",
+      "kind": "error",
+      "code": "invalid_input",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "   "
+        }
+      },
+      "response": {
+        "status": 422,
+        "contentType": "application/json",
+        "body": {
+          "error": "invalid_input",
+          "code": "invalid_input",
+          "messageKey": "errors.invalidInput",
+          "status": 422,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "paragraph-control",
+      "kind": "error",
+      "code": "invalid_input",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni\u0007odlomak"
+        }
+      },
+      "response": {
+        "status": 422,
+        "contentType": "application/json",
+        "body": {
+          "error": "invalid_input",
+          "code": "invalid_input",
+          "messageKey": "errors.invalidInput",
+          "status": 422,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "not-json",
+      "kind": "error",
+      "code": "invalid_input",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "rawBody": "{\"assignmentId\":"
+      },
+      "response": {
+        "status": 422,
+        "contentType": "application/json",
+        "body": {
+          "error": "invalid_input",
+          "code": "invalid_input",
+          "messageKey": "errors.invalidInput",
+          "status": 422,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "origin-missing",
+      "kind": "error",
+      "code": "origin_missing",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 403,
+        "contentType": "application/json",
+        "body": {
+          "error": "origin_missing",
+          "code": "origin_missing",
+          "messageKey": "errors.originMissing",
+          "status": 403,
+          "requestId": "00000000-0000-4000-8000-00000000d107"
+        }
+      }
+    },
+    {
+      "name": "origin-mismatch",
+      "kind": "error",
+      "code": "origin_mismatch",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://drugo.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 403,
+        "contentType": "application/json",
+        "body": {
+          "error": "origin_mismatch",
+          "code": "origin_mismatch",
+          "messageKey": "errors.originMismatch",
+          "status": 403,
+          "requestId": "00000000-0000-4000-8000-00000000d108"
+        }
+      }
+    },
+    {
+      "name": "cross-site",
+      "kind": "error",
+      "code": "cross_site",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "cross-site",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 403,
+        "contentType": "application/json",
+        "body": {
+          "error": "cross_site",
+          "code": "cross_site",
+          "messageKey": "errors.crossSite",
+          "status": 403,
+          "requestId": "00000000-0000-4000-8000-00000000d109"
+        }
+      }
+    },
+    {
+      "name": "body-too-large",
+      "kind": "error",
+      "code": "body_too_large",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "content-length": "65537",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "rawBody": "{\"assignmentId\": \"00000000-0000-4000-8000-0000000000a1\", \"conversationId\": null, \"purposeCatalogVersion\": 1, \"purposeKey\": \"proofreading\", \"paragraph\": \"Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci.\"}"
+      },
+      "response": {
+        "status": 413,
+        "contentType": "application/json",
+        "body": {
+          "error": "body_too_large",
+          "code": "body_too_large",
+          "messageKey": "errors.bodyTooLarge",
+          "status": 413,
+          "requestId": "00000000-0000-4000-8000-00000000d10a"
+        }
+      }
+    },
+    {
+      "name": "body-timeout",
+      "kind": "error",
+      "code": "body_timeout",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "content-length": "15",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "rawBody": "{\"requestId\":"
+      },
+      "response": {
+        "status": 408,
+        "contentType": "application/json",
+        "body": {
+          "error": "body_timeout",
+          "code": "body_timeout",
+          "messageKey": "errors.bodyTimeout",
+          "status": 408,
+          "requestId": "00000000-0000-4000-8000-00000000d10b"
+        }
+      }
+    },
+    {
+      "name": "content-length-invalid",
+      "kind": "error",
+      "code": "content_length_invalid",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "content-length": "-1",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 400,
+        "contentType": "application/json",
+        "body": {
+          "error": "content_length_invalid",
+          "code": "content_length_invalid",
+          "messageKey": "errors.contentLengthInvalid",
+          "status": 400,
+          "requestId": "00000000-0000-4000-8000-00000000d10c"
+        }
+      }
+    },
+    {
+      "name": "content-length-mismatch",
+      "kind": "error",
+      "code": "content_length_mismatch",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "content-length": "1",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 400,
+        "contentType": "application/json",
+        "body": {
+          "error": "content_length_mismatch",
+          "code": "content_length_mismatch",
+          "messageKey": "errors.contentLengthMismatch",
+          "status": 400,
+          "requestId": "00000000-0000-4000-8000-00000000d10d"
+        }
+      }
+    },
+    {
+      "name": "body-stream-error",
+      "kind": "error",
+      "code": "body_stream_error",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "content-length": "15",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "rawBody": "{\"req"
+      },
+      "response": {
+        "status": 400,
+        "contentType": "application/json",
+        "body": {
+          "error": "body_stream_error",
+          "code": "body_stream_error",
+          "messageKey": "errors.bodyStreamError",
+          "status": 400,
+          "requestId": "00000000-0000-4000-8000-00000000d10e"
+        }
+      }
+    },
+    {
+      "name": "unavailable",
+      "kind": "error",
+      "code": "unavailable",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 503,
+        "contentType": "application/json",
+        "body": {
+          "error": "unavailable",
+          "code": "unavailable",
+          "messageKey": "errors.unavailable",
+          "status": 503,
+          "requestId": "00000000-0000-4000-8000-00000000d10f"
+        }
+      }
+    },
+    {
+      "name": "unsupported-media-type",
+      "kind": "error",
+      "code": "unsupported_media_type",
+      "request": {
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "text/plain",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "rawBody": "{\"assignmentId\": \"00000000-0000-4000-8000-0000000000a1\", \"conversationId\": null, \"purposeCatalogVersion\": 1, \"purposeKey\": \"proofreading\", \"paragraph\": \"Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci.\"}"
+      },
+      "response": {
+        "status": 415,
+        "contentType": "application/json",
+        "body": {
+          "error": "unsupported_media_type",
+          "code": "unsupported_media_type",
+          "messageKey": "errors.unsupportedMediaType",
+          "status": 415,
+          "requestId": "00000000-0000-4000-8000-00000000d110"
+        }
+      }
+    },
+    {
+      "name": "unauthorized",
+      "kind": "error",
+      "code": "unauthorized",
+      "request": {
+        "headers": {
+          "origin": "https://ductura.example.invalid",
+          "sec-fetch-site": "same-origin",
+          "content-type": "application/json",
+          "idempotency-key": "5f0c3a9e-2b7d-4c1e-9a6f-0d8e7b4c2a11"
+        },
+        "body": {
+          "assignmentId": "00000000-0000-4000-8000-0000000000a1",
+          "conversationId": null,
+          "purposeCatalogVersion": 1,
+          "purposeKey": "proofreading",
+          "paragraph": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci."
+        }
+      },
+      "response": {
+        "status": 401,
+        "contentType": "application/json",
+        "body": {
+          "error": "unauthorized",
+          "code": "unauthorized",
+          "messageKey": "errors.unauthorized",
+          "status": 401,
+          "requestId": "00000000-0000-4000-8000-00000000d112"
+        }
+      }
+    }
+  ]
+}

@@ -5,6 +5,7 @@ import "../guard/index.ts";
 
 import type { Operations } from "../../contracts/index.ts";
 import { ACCOUNT_HANDLERS } from "./account-routes.ts";
+import { ASSISTANT_HANDLERS } from "./assistant-routes.ts";
 import { ATTACHMENT_HANDLERS } from "./attachment-routes.ts";
 import { COLLABORATION_HANDLERS } from "./collaboration-routes.ts";
 import { CONSULTATION_SLOT_HANDLERS } from "./consultation-slots.ts";
@@ -65,6 +66,7 @@ export const DEV_HANDLERS: Handlers = {
   ...EVIDENCE_HANDLERS,
   ...COLLABORATION_HANDLERS,
   ...CONSULTATION_SLOT_HANDLERS,
+  ...ASSISTANT_HANDLERS,
   ...VERSIONS_HANDLERS,
   ...MESSAGES_HANDLERS,
   ...CONSULTATION_HANDLERS,

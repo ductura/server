@@ -733,6 +733,35 @@ export const VALIDATORS: Readonly<Record<string, (value: Record<string, unknown>
       Object.getOwnPropertyNames(value).length === 1
     )
   }),
+  "student.assistant-conversation.get:params": (function check(value: Record<string, unknown>): boolean {
+    return (
+      (typeof value === 'object' && value !== null && !Array.isArray(value)) &&
+      (typeof value['conversationId'] === 'string') &&
+      value['conversationId'].length >= 1 &&
+      Object.getOwnPropertyNames(value).length === 1
+    )
+  }),
+  "student.assistant-request.post:body": (() => {
+  const local0 = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+  const local1 = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+  const local2 = /^[a-z][a-z0-9_]{0,63}$/;
+  return function check(value: Record<string, unknown>): boolean {
+    return (
+      (typeof value === 'object' && value !== null && !Array.isArray(value)) &&
+      (typeof value['assignmentId'] === 'string') &&
+      local0.test(value['assignmentId']) &&
+      (((typeof value['conversationId'] === 'string') && local1.test(value['conversationId'])) || ((value['conversationId'] === null))) &&
+      (typeof value['purposeCatalogVersion'] === 'number' && Number.isInteger(value['purposeCatalogVersion'])) &&
+      value['purposeCatalogVersion'] <= 2147483647 &&
+      value['purposeCatalogVersion'] >= 1 &&
+      (typeof value['purposeKey'] === 'string') &&
+      local2.test(value['purposeKey']) &&
+      (typeof value['paragraph'] === 'string') &&
+      value['paragraph'].length >= 1 &&
+      Object.getOwnPropertyNames(value).length === 5
+    )
+  }
+  })(),
   "student.enrollments.post:body": (function check(value: Record<string, unknown>): boolean {
     return (
       (typeof value === 'object' && value !== null && !Array.isArray(value)) &&

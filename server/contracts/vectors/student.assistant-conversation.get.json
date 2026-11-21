@@ -1,0 +1,149 @@
+{
+  "route": "student.assistant-conversation.get",
+  "vectors": [
+    {
+      "name": "messages",
+      "kind": "success",
+      "request": {
+        "params": {
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        },
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "sec-fetch-site": "same-origin"
+        }
+      },
+      "response": {
+        "status": 200,
+        "contentType": "application/json",
+        "headers": {
+          "cache-control": "no-store"
+        },
+        "body": {
+          "conversationId": "00000000-0000-4000-8000-0000000000c1",
+          "messages": [
+            {
+              "seq": 1,
+              "id": "00000000-0000-4000-8000-0000000000b1",
+              "requestId": "00000000-0000-4000-8000-0000000000d1",
+              "role": "student_paragraph",
+              "content": "Izmišljeni odlomak o vodenim mlinovima na izmišljenoj rijeci.",
+              "contentSha256": "e47d85e485dd52f39a7d1874d7d4854e20c5a7009d01106c50750e941ad532e3",
+              "createdAt": "2026-11-21T10:00:00.000Z",
+              "requestState": "completed"
+            },
+            {
+              "seq": 2,
+              "id": "00000000-0000-4000-8000-0000000000d2",
+              "requestId": "00000000-0000-4000-8000-0000000000d1",
+              "role": "provider_response",
+              "content": "Izmišljeni odgovor: provjerite zarez iza riječi „mlinovima”.",
+              "contentSha256": "ac7107f6ffcc03b585ef2c9fe98d530e00d852fc45bdce6599c1c3f9349e0b38",
+              "createdAt": "2026-11-21T10:00:01.000Z",
+              "requestState": "completed"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "unauthorized",
+      "kind": "error",
+      "code": "unauthorized",
+      "request": {
+        "params": {
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        },
+        "headers": {
+          "sec-fetch-site": "same-origin"
+        }
+      },
+      "response": {
+        "status": 401,
+        "contentType": "application/json",
+        "body": {
+          "error": "unauthorized",
+          "code": "unauthorized",
+          "messageKey": "errors.unauthorized",
+          "status": 401,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "not-found",
+      "kind": "error",
+      "code": "not_found",
+      "request": {
+        "params": {
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        },
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "sec-fetch-site": "same-origin"
+        }
+      },
+      "response": {
+        "status": 404,
+        "contentType": "application/json",
+        "body": {
+          "error": "not_found",
+          "code": "not_found",
+          "messageKey": "errors.notFound",
+          "status": 404,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "unavailable",
+      "kind": "error",
+      "code": "unavailable",
+      "request": {
+        "params": {
+          "conversationId": "00000000-0000-4000-8000-0000000000c1"
+        },
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "sec-fetch-site": "same-origin"
+        }
+      },
+      "response": {
+        "status": 503,
+        "contentType": "application/json",
+        "body": {
+          "error": "unavailable",
+          "code": "unavailable",
+          "messageKey": "errors.unavailable",
+          "status": 503,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    },
+    {
+      "name": "malformed-id",
+      "kind": "error",
+      "code": "not_found",
+      "request": {
+        "params": {
+          "conversationId": "nije-uuid"
+        },
+        "headers": {
+          "cookie": "__Host-ductus_session=izmisljeni-token-studenta-00000000000000001",
+          "sec-fetch-site": "same-origin"
+        }
+      },
+      "response": {
+        "status": 404,
+        "contentType": "application/json",
+        "body": {
+          "error": "not_found",
+          "code": "not_found",
+          "messageKey": "errors.notFound",
+          "status": 404,
+          "requestId": "00000000-0000-4000-8000-000000000000"
+        }
+      }
+    }
+  ]
+}

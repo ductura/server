@@ -379,6 +379,20 @@ export type Operations = {
     success: { status: 200; body: { "courses": ({ "id": string; "name": string; "academicYear"?: string; "groups"?: ({ "id": string; "name": string })[]; "teachers"?: ({ "id": string; "givenName": string; "familyName": string; "role": "holder" | "collaborator" })[]; "assignments": ({ "id": string; "title": string; "dueAt": string; "noticeFirst": boolean; "workType"?: "short_paper" | "essay" | "seminar_paper" | "bachelor_thesis" | "master_thesis" | "specialist_thesis" | "doctoral_thesis"; "mentor"?: { "id": string; "givenName": string; "familyName": string } | null; "extendedDueAt"?: string | null })[] })[] }; headers: {  } };
     errorCode: "unauthorized" | "unavailable";
   };
+  "student.assistant-conversation.get": {
+    params: { "conversationId": string };
+    query: undefined;
+    body: undefined;
+    success: { status: 200; body: { "conversationId": string; "messages": ({ "seq": number; "id": string; "requestId": string; "role": "student_paragraph" | "provider_response"; "content": string; "contentSha256": string; "createdAt": string; "requestState": "rejected" | "reserved" | "sent" | "completed" | "provider_failed" | "outcome_unknown" | "settled" })[] }; headers: { "cache-control"?: string } };
+    errorCode: "unauthorized" | "not_found" | "unavailable";
+  };
+  "student.assistant-request.post": {
+    params: undefined;
+    query: undefined;
+    body: { "assignmentId": string; "conversationId": string | null; "purposeCatalogVersion": number; "purposeKey": string; "paragraph": string };
+    success: { status: 200; body: { "outcome": "completed"; "requestId": string; "conversationId": string; "response": { "id": string; "text": string } } | { "outcome": "idempotency_conflict" | "forbidden" | "ai_disabled" | "purpose_not_allowed" | "budget_exceeded" | "in_progress" | "request_outcome_unknown" | "provider_failed"; "requestId": string | null; "conversationId": string | null }; headers: { "cache-control"?: string } };
+    errorCode: "origin_missing" | "origin_mismatch" | "cross_site" | "body_too_large" | "body_timeout" | "content_length_invalid" | "content_length_mismatch" | "body_stream_error" | "unauthorized" | "unsupported_media_type" | "precondition_required" | "invalid_input" | "unavailable";
+  };
   "student.enrollments.post": {
     params: undefined;
     query: undefined;

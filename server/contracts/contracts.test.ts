@@ -121,6 +121,8 @@ describe("route inventory", () => {
       "work.consultation-slots.get: app/api/works/[documentId]/consultation-slots/route.ts is not in the inventory",
       "work.consultation-slots.post: app/api/works/[documentId]/consultation-slots/route.ts is not in the inventory",
       "work.consultation-slots.patch: app/api/works/[documentId]/consultation-slots/[slotId]/route.ts is not in the inventory",
+      "student.assistant-request.post: app/api/student/assistant/requests/route.ts is not in the inventory",
+      "student.assistant-conversation.get: app/api/student/assistant/conversations/[conversationId]/route.ts is not in the inventory",
       "student.enrollments.post: app/api/student/enrollments/route.ts is not in the inventory",
       "institution.admin-courses.post: app/api/institution/admin/courses/route.ts is not in the inventory",
       "institution.course-groups.get: app/api/institution/courses/[courseId]/groups/route.ts is not in the inventory",
