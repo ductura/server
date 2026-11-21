@@ -13,6 +13,7 @@ export * from "./support/index.ts";
 export * from "./text/index.ts";
 export * from "./assistant/index.ts";
 export * from "./declaration/index.ts";
+export * from "./provenance-share/index.ts";
 // Both document and evidence name a `SourceId` (Ductus keeps them in separate
 // folders): the document's is the source of a citation, the evidence one the
 // source of an evidence basis. The explicit exports settle which is which.

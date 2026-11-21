@@ -77,6 +77,7 @@ describe("server/domain imports nothing outside itself", () => {
       "privacy",
       "profile",
       "projection",
+      "provenance-share",
       "settings",
       "support",
       "sync",

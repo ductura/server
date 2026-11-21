@@ -1,0 +1,130 @@
+{
+  "events": [
+    {
+      "source": "ai-transfer",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 1,
+          "to": 1,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Kompost nastaje razgradnjom organske tvari uz prisutnost kisika."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 29,
+          "to": 37,
+          "removedSha256": "489d8a8c6a5ead5da29315bc72dd3389be322165fe28b09d2f303ce83aaa9800",
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "biljne"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "keyless-input",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 63,
+          "to": 63,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": " Dopisano."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 1,
+          "to": 73,
+          "removedSha256": "df7f280113bf097cf742a9bee78e25345d7e426007d0bc8267e50dce5f07b99f"
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost nastaje razgradnjom organske tvari uz prisutnost kisika.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost nastaje razgradnjom biljne tvari uz prisutnost kisika.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost nastaje razgradnjom biljne tvari uz prisutnost kisika. Dopisano.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

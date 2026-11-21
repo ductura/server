@@ -1,0 +1,213 @@
+{
+  "events": [
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 1,
+          "to": 1,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Kompost"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 8,
+          "to": 8,
+          "slice": {
+            "content": [
+              {
+                "type": "footnote",
+                "text": "Izmišljena bilješka."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "paste",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 9,
+          "to": 9,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": " grije."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "ai-transfer",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 16,
+          "to": 16,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": " Treba ga okretati."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 8,
+          "to": 9,
+          "removedSha256": "cdab33d079202bccc11979ae614a6462acd9b497cb3ff2cd976c8557c2adb576",
+          "slice": {
+            "content": [
+              {
+                "type": "footnote",
+                "text": "Druga izmišljena bilješka."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "schemaVersion": 3,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "sources": []
+    },
+    {
+      "schemaVersion": 3,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost",
+              "marks": []
+            },
+            {
+              "type": "footnote",
+              "text": "Izmišljena bilješka."
+            }
+          ]
+        }
+      ],
+      "sources": []
+    },
+    {
+      "schemaVersion": 3,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost",
+              "marks": []
+            },
+            {
+              "type": "footnote",
+              "text": "Izmišljena bilješka."
+            },
+            {
+              "type": "text",
+              "text": " grije.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "sources": []
+    },
+    {
+      "schemaVersion": 3,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost",
+              "marks": []
+            },
+            {
+              "type": "footnote",
+              "text": "Izmišljena bilješka."
+            },
+            {
+              "type": "text",
+              "text": " grije. Treba ga okretati.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "sources": []
+    },
+    {
+      "schemaVersion": 3,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Kompost",
+              "marks": []
+            },
+            {
+              "type": "footnote",
+              "text": "Druga izmišljena bilješka."
+            },
+            {
+              "type": "text",
+              "text": " grije. Treba ga okretati.",
+              "marks": []
+            }
+          ]
+        }
+      ],
+      "sources": []
+    }
+  ]
+}

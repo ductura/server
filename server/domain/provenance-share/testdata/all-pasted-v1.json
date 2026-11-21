@@ -1,0 +1,79 @@
+{
+  "events": [
+    {
+      "source": "paste",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 1,
+          "to": 1,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "00000000-0000-4000-8000-000000000000"
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Prvi zalijepljeni odlomak."
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Drugi zalijepljeni odlomak."
+                  }
+                ]
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 28,
+          "value": "c5c5c5c5-0000-4000-8000-000000000005"
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi zalijepljeni odlomak.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "id": "c5c5c5c5-0000-4000-8000-000000000005",
+          "children": [
+            {
+              "type": "text",
+              "text": "Drugi zalijepljeni odlomak.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

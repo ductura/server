@@ -1,0 +1,329 @@
+{
+  "events": [
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 1,
+          "to": 1,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Kućno kompostiranje smanjuje količinu otpada. "
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "ai-transfer",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 47,
+          "to": 47,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Kompost nastaje razgradnjom organske tvari uz prisutnost kisika."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "paste",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 111,
+          "to": 111,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "00000000-0000-4000-8000-000000000000"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 112,
+          "value": "b2b2b2b2-0000-4000-8000-000000000002"
+        },
+        {
+          "stepType": "replace",
+          "from": 113,
+          "to": 113,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Prema izmišljenom izvoru, četvrti s kompostištima imaju manje otpada."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 131,
+          "to": 137,
+          "removedSha256": "1f76184aab1fea3719b0939ea229e156dc116a6ba66c65f7f887a5718c584c55",
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "istraživanju"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "import",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 188,
+          "to": 188,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "b2b2b2b2-0000-4000-8000-000000000002"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 189,
+          "value": "b3b3b3b3-0000-4000-8000-000000000003"
+        },
+        {
+          "stepType": "replace",
+          "from": 190,
+          "to": 190,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Uvezeni odlomak iz ranijeg nacrta."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "unattributed",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 224,
+          "to": 224,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": " (dopuna)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 233,
+          "to": 233,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "b3b3b3b3-0000-4000-8000-000000000003"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 234,
+          "value": "b4b4b4b4-0000-4000-8000-000000000004"
+        },
+        {
+          "stepType": "replace",
+          "from": 235,
+          "to": 235,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "„Zreli kompost” ima miris šumskog tla i tamnu boju te se koristi kao gnojivo u vrtu."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 319,
+          "to": 319,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "b4b4b4b4-0000-4000-8000-000000000004"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 320,
+          "value": "b5b5b5b5-0000-4000-8000-000000000005"
+        },
+        {
+          "stepType": "replace",
+          "from": 321,
+          "to": 321,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Proces obično traje nekoliko mjeseci, ovisno o vlazi."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "submittedDocument": {
+    "schemaVersion": 1,
+    "nodes": [
+      {
+        "type": "paragraph",
+        "id": "00000000-0000-4000-8000-000000000000",
+        "children": [
+          {
+            "type": "text",
+            "text": "Kućno kompostiranje smanjuje količinu otpada. Kompost nastaje razgradnjom organske tvari uz prisutnost kisika.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "id": "b2b2b2b2-0000-4000-8000-000000000002",
+        "children": [
+          {
+            "type": "text",
+            "text": "Prema izmišljenom istraživanju, četvrti s kompostištima imaju manje otpada.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "id": "b3b3b3b3-0000-4000-8000-000000000003",
+        "children": [
+          {
+            "type": "text",
+            "text": "Uvezeni odlomak iz ranijeg nacrta. (dopuna)",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "id": "b4b4b4b4-0000-4000-8000-000000000004",
+        "children": [
+          {
+            "type": "text",
+            "text": "„Zreli kompost” ima miris šumskog tla i tamnu boju te se koristi kao gnojivo u vrtu.",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "id": "b5b5b5b5-0000-4000-8000-000000000005",
+        "children": [
+          {
+            "type": "text",
+            "text": "Proces obično traje nekoliko mjeseci, ovisno o vlazi.",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  }
+}

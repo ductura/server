@@ -1,0 +1,613 @@
+{
+  "events": [
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 1,
+          "to": 1,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Prvi odlomak o kompostu."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "paste",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 25,
+          "to": 25,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "00000000-0000-4000-8000-000000000000"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 26,
+          "value": "c2c2c2c2-0000-4000-8000-000000000002"
+        },
+        {
+          "stepType": "replace",
+          "from": 27,
+          "to": 27,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Zalijepljeni tekst iz izmišljene bilješke."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replaceAround",
+          "from": 26,
+          "to": 70,
+          "gapFrom": 27,
+          "gapTo": 69,
+          "insert": 1,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "heading",
+                "attrs": {
+                  "level": 2,
+                  "nodeId": "c2c2c2c2-0000-4000-8000-000000000002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "addMark",
+          "from": 27,
+          "to": 39,
+          "mark": {
+            "type": "bold"
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "removeMark",
+          "from": 27,
+          "to": 31,
+          "mark": {
+            "type": "bold"
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replaceAround",
+          "from": 26,
+          "to": 70,
+          "gapFrom": 27,
+          "gapTo": 69,
+          "insert": 1,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "c2c2c2c2-0000-4000-8000-000000000002"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "cut",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 14,
+          "to": 15,
+          "removedSha256": "758f4919ec08724c6a4ef4446cff0c2690929dd54c8fac9ca8ed9eef2f3b96ce",
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "uz"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 26,
+          "to": 28,
+          "structure": true
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 11,
+          "to": 11,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "00000000-0000-4000-8000-000000000000"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 12,
+          "value": "c3c3c3c3-0000-4000-8000-000000000003"
+        }
+      ]
+    },
+    {
+      "source": "editor",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 8,
+          "to": 17,
+          "removedSha256": "09dcfc21f03e43a46e00efe44fb86488eb51dbaeeecd42eb15b28dc5f2d4e0e7"
+        }
+      ]
+    },
+    {
+      "source": "drop",
+      "steps": [
+        {
+          "stepType": "replace",
+          "from": 61,
+          "to": 61,
+          "structure": true,
+          "slice": {
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": "00000000-0000-4000-8000-000000000000"
+                }
+              },
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "nodeId": null
+                }
+              }
+            ],
+            "openStart": 1,
+            "openEnd": 1
+          }
+        },
+        {
+          "stepType": "attr",
+          "attr": "nodeId",
+          "pos": 62,
+          "value": "c4c4c4c4-0000-4000-8000-000000000004"
+        },
+        {
+          "stepType": "replace",
+          "from": 63,
+          "to": 63,
+          "slice": {
+            "content": [
+              {
+                "type": "text",
+                "text": "Ispušteni redak 🌱."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak o kompostu.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak o kompostu.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "id": "c2c2c2c2-0000-4000-8000-000000000002",
+          "children": [
+            {
+              "type": "text",
+              "text": "Zalijepljeni tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak o kompostu.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "id": "c2c2c2c2-0000-4000-8000-000000000002",
+          "level": 2,
+          "children": [
+            {
+              "type": "text",
+              "text": "Zalijepljeni tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak o kompostu.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "id": "c2c2c2c2-0000-4000-8000-000000000002",
+          "level": 2,
+          "children": [
+            {
+              "type": "text",
+              "text": "Zalijepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak o kompostu.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "heading",
+          "id": "c2c2c2c2-0000-4000-8000-000000000002",
+          "level": 2,
+          "children": [
+            {
+              "type": "text",
+              "text": "Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak o kompostu.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "id": "c2c2c2c2-0000-4000-8000-000000000002",
+          "children": [
+            {
+              "type": "text",
+              "text": "Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak uz kompostu.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "id": "c2c2c2c2-0000-4000-8000-000000000002",
+          "children": [
+            {
+              "type": "text",
+              "text": "Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlomak uz kompostu.Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odlom",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "id": "c3c3c3c3-0000-4000-8000-000000000003",
+          "children": [
+            {
+              "type": "text",
+              "text": "ak uz kompostu.Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odz kompostu.Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "schemaVersion": 1,
+      "nodes": [
+        {
+          "type": "paragraph",
+          "id": "00000000-0000-4000-8000-000000000000",
+          "children": [
+            {
+              "type": "text",
+              "text": "Prvi odz kompostu.Zali",
+              "marks": []
+            },
+            {
+              "type": "text",
+              "text": "jepljeni",
+              "marks": ["bold"]
+            },
+            {
+              "type": "text",
+              "text": " tekst iz izmišljene bilješke.",
+              "marks": []
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "id": "c4c4c4c4-0000-4000-8000-000000000004",
+          "children": [
+            {
+              "type": "text",
+              "text": "Ispušteni redak 🌱.",
+              "marks": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
